@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        app:
+        - client
+        - server
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Setup
+      run: ./${{ matrix.app }}/scripts/setup.sh
+    - name: Build
+      run: ./${{ matrix.app }}/scripts/build.sh
+    - name: Unit tests
+      run: ./${{ matrix.app }}/scripts/unit-test.sh
+    - name: Integration tests
+      run: ./${{ matrix.app }}/scripts/integration-test.sh
