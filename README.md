@@ -1,7 +1,9 @@
-# Topick
+# [topick.fyi](https://topick.fyi)
 
 ## Important Links
 
+- [Production UI](https://topick.fyi)
+- [Production API](https://services.topick.fyi)
 - [Repository](https://github.com/ExoKomodo/topick)
 
 ## Client
