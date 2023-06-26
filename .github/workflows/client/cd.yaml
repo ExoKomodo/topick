@@ -1,4 +1,4 @@
-name: CD - Client
+name: CD (client)
 
 on:
   push:

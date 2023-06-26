@@ -1,7 +1,9 @@
-# Topick
+# [topick.fyi](https://topick.fyi)
 
 ## Important Links
 
+- [Production UI](https://topick.fyi)
+- [Production API](https://services.topick.fyi)
 - [Repository](https://github.com/ExoKomodo/topick)
 
 ## Client
@@ -56,8 +58,15 @@
 ./server/scripts/run.sh
 ```
 
-### Server - Testing
+### Server - Unit Testing
 
 ```shell
-./server/scripts/test.sh
+./server/scripts/unit-test.sh
 ```
+
+### Server - Integratiin Testing
+
+```shell
+./server/scripts/integration-test.sh
+```
+
