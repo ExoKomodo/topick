@@ -1,6 +1,9 @@
 alerts:
 - rule: DEPLOYMENT_FAILED
 - rule: DOMAIN_FAILED
+domains:
+- domain: services.topick.fyi
+  type: PRIMARY
 ingress:
   rules:
   - component:
