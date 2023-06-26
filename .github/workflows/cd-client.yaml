@@ -36,7 +36,6 @@ jobs:
         npm run build
         cp ./dist/index.html ./dist/404.html
     - name: Deploy
-      if: ${{ github.ref == 'refs/heads/main' }}
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
