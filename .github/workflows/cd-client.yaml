@@ -6,9 +6,6 @@ on:
       - main
     paths:
       - client/**
-  pull_request:
-    branches:
-      - main
 
 defaults:
   run:
