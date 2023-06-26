@@ -1,0 +1,18 @@
+name: topick
+region: sfo
+domains:
+- domain: services.topick.fyi
+  type: PRIMARY
+services:
+- environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: ExoKomodo/topick
+  name: topick
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  envs: []
+  routes:
+  - path: /
+  source_dir: server
