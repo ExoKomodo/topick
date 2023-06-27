@@ -1,5 +1,3 @@
-import dotenv from "dotenv";
-
 export default class Constants {
     static OpenAi = {
         ApiKey: process.env.OPENAI_API_KEY,
