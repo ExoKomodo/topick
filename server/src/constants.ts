@@ -16,7 +16,8 @@ export default class Constants {
 
     static Envs = envs;
     static Env = process.env.NODE_ENV;
-    static BaseUrl = process.env.NODE_ENV === envs.Development ? 'http://localhost:8080' : 'https://services.topick.fyi';
+    // static BaseUrl = 'http://localhost:8080';
+    static BaseUrl = 'https://services.topick.fyi';
     static Port = process.env.SERVER_PORT
     static Api = {
         Prefix: apiPrefix,
