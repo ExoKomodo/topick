@@ -5,6 +5,7 @@
 - [Production UI](https://topick.fyi)
 - [Production API](https://services.topick.fyi)
 - [Repository](https://github.com/ExoKomodo/topick)
+- [OpenAI API Reference](https://platform.openai.com/docs/api-reference)
 
 ## Client
 

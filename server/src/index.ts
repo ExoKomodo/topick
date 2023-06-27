@@ -1,15 +1,20 @@
 import dotenv from "dotenv";
-import express from "express";
-
+// IMPORTANT: This must be called before importing any other modules
 dotenv.config();
 
-const port = process.env.SERVER_PORT;
+import express from "express";
+import Constants from './constants';
+import { registerApi } from "./api";
+
+const port = Constants.Port;
 const app = express();
 
-app.get( "/", ( req, res ) => {
-    res.send( "Hello world!" );
-} );
+app.get("/", (req, res, _) => {
+    res.send(`${Constants.BaseUrl}${Constants.Api.V1.Prefix}/topic`);
+});
 
-app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
-} );
+registerApi(app);
+
+app.listen(port, () => {
+    console.log(`server started at http://localhost:${port}`);
+});
