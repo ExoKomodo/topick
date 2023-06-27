@@ -1,10 +1,10 @@
 import dotenv from "dotenv";
 import express from "express";
-import { registerApi } from "./api";
 
+// IMPORTANT: This must be called before calling other modules
 dotenv.config();
 
-const API_PREFIX = '/api';
+import { registerApi } from "./api";
 
 const port = process.env.SERVER_PORT;
 const app = express();

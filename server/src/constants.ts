@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+
 export default class Constants {
     static OpenAi = {
         OrganizationId: 'org-tnbt9iefbpaAa7D9BqtayjZS',
@@ -6,6 +8,7 @@ export default class Constants {
 
     static ApiPrefix = '/api';
     static V1Prefix = `${this.ApiPrefix}/v1`;
+    static TopicPrefix = `${this.V1Prefix}/topic`;
     static OpenAiPrefix = `${this.V1Prefix}/openai`;
     static OpenAiModelsPrefix = `${this.OpenAiPrefix}/models`;
 }

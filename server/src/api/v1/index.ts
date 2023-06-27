@@ -1,5 +1,5 @@
 import { Express } from "express";
-import { registerOpenAi } from "./openai";
+import { registerTopic } from "./topic";
 
 import Constants from "../../constants";
 
@@ -10,5 +10,5 @@ export function registerV1(app: Express): void {
         res.send(URL_PREFIX);
     });
 
-    registerOpenAi(app);
+    registerTopic(app);
 }
