@@ -1,8 +1,9 @@
 import { Configuration, OpenAIApi } from "openai";
+import Constants from "../../constants";
 
 export function getClient(): OpenAIApi {
     const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
+        apiKey: Constants.OpenAi.ApiKey,
     });
     return new OpenAIApi(configuration);
 }
