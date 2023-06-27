@@ -6,7 +6,7 @@ import { ChatCompletionRequestMessageRoleEnum, CreateChatCompletionResponse } fr
 
 const client = openai.getClient();
 
-const URL_PREFIX = Constants.Api.V1.Topic.Prefix;
+const endpointPrefix = Constants.Api.V1.Topic.Prefix;
 
 export type Model =
 | 'gpt-3.5-turbo'
@@ -206,7 +206,7 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
 }
 
 export function registerTopic(app: Express): void {
-    app.get(URL_PREFIX, async (req, res, next) => {
+    app.get(endpointPrefix, async (req, res, next) => {
         // TODO: Do type checking on this
         const params = (req.query as unknown) as TopicQueryParams;
         try {
