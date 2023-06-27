@@ -6,7 +6,7 @@ import { ChatCompletionRequestMessageRoleEnum, CreateChatCompletionResponse } fr
 
 const client = openai.getClient();
 
-const URL_PREFIX = Constants.TopicPrefix;
+const URL_PREFIX = Constants.Api.V1.Topic.Prefix;
 
 export type Model =
 | 'gpt-3.5-turbo'
@@ -14,7 +14,7 @@ export type Model =
 | 'text-davinci-003'
 
 export type TopicQueryParams = {
-    topic: string,
+    search: string,
     count?: number,
     model?: Model
 };
@@ -55,11 +55,11 @@ export type TopickResults<T> = {
     items: T[]
     count: number
 }
-export async function searchTopickAsync({ topic, count, model } : TopicQueryParams): Promise<TopickResults<string>> {
+export async function searchTopickAsync({ search, count, model } : TopicQueryParams): Promise<TopickResults<string>> {
     /*
         Examples:
         curl  -X GET \
-        'http://localhost:8080/api/v1/topic?topic=code%20editors%20for%20music%20industry&count=10&model=gpt-3.5-turbo' \
+        'http://localhost:8080/api/v1/topic?search=code%20editors%20for%20music%20industry&count=10&model=gpt-3.5-turbo' \
         --header 'Accept: application/json'
         {
             "items": [
@@ -77,7 +77,7 @@ export async function searchTopickAsync({ topic, count, model } : TopicQueryPara
             "count": 10
         }
         curl  -X GET \
-        'http://localhost:8080/api/v1/topic?topic=code%20editors%20for%20music%20industry&count=10&model=gpt-3.5-turbo' \
+        'http://localhost:8080/api/v1/topic?search=code%20editors%20for%20music%20industry&count=10&model=gpt-3.5-turbo' \
         --header 'Accept: application/json'
         {
             "items": [
@@ -94,11 +94,67 @@ export async function searchTopickAsync({ topic, count, model } : TopicQueryPara
             ],
             "count": 10
         }
+        Received this surprise:
+        {
+            "items": [
+                {
+                "name": "Sonic Pi",
+                "description": "A live coding music synthesizer",
+                "website": "https://sonic-pi.net/"
+                },
+                {
+                "name": "Max/MSP",
+                "description": "A visual programming language for music and multimedia",
+                "website": "https://cycling74.com/products/max"
+                },
+                {
+                "name": "SuperCollider",
+                "description": "An environment and programming language for real-time audio synthesis and algorithmic composition",
+                "website": "https://supercollider.github.io/"
+                },
+                {
+                "name": "ChucK",
+                "description": "A programming language for real-time sound synthesis and music creation",
+                "website": "https://chuck.cs.princeton.edu/"
+                },
+                {
+                "name": "Csound",
+                "description": "A software synthesizer and programming language for sound synthesis and music composition",
+                "website": "https://csound.com/"
+                },
+                {
+                "name": "OpenMusic",
+                "description": "A visual programming language for music composition",
+                "website": "https://repmus.ircam.fr/openmusic/home"
+                },
+                {
+                "name": "Pure Data",
+                "description": "A visual programming language for multimedia and music creation",
+                "website": "https://puredata.info/"
+                },
+                {
+                "name": "Nyquist",
+                "description": "A sound synthesis and music composition language",
+                "website": "https://www.cs.cmu.edu/~music/nyquist/"
+                },
+                {
+                "name": "Faust",
+                "description": "A programming language for sound synthesis and audio processing",
+                "website": "https://faust.grame.fr/"
+                },
+                {
+                "name": "TidalCycles",
+                "description": "A live coding environment for musical pattern manipulation",
+                "website": "https://tidalcycles.org/"
+                }
+            ],
+            "count": 10
+        }
     */
 
     // NOTE: By reassigning, we allow for a static type check on the model kind
     model = model ?? 'gpt-3.5-turbo';
-    const prompt = `What are the top ${count ?? 10} ${topic}`;
+    const prompt = `What are the top ${count ?? 10} ${search}`;
     switch (model) {
         case 'gpt-3.5-turbo':
             const chatCompletion: AxiosResponse<CreateChatCompletionResponse> = await client.createChatCompletion({
@@ -150,7 +206,7 @@ export async function searchTopickAsync({ topic, count, model } : TopicQueryPara
 }
 
 export function registerTopic(app: Express): void {
-    app.get(`${URL_PREFIX}`, async (req, res, next) => {
+    app.get(URL_PREFIX, async (req, res, next) => {
         // TODO: Do type checking on this
         const params = (req.query as unknown) as TopicQueryParams;
         try {

@@ -10,7 +10,7 @@ const port = Constants.Port;
 const app = express();
 
 app.get("/", (req, res, _) => {
-    res.send("Hello world!");
+    res.send(`${Constants.BaseUrl}${Constants.Api.V1.Prefix}/topic`);
 });
 
 registerApi(app);
