@@ -1,6 +1,11 @@
 export default class Constants {
-    static API_PREFIX = '/api';
-    static V1_PREFIX = `${this.API_PREFIX}/v1`;
-    static OPENAI_PREFIX = `${this.V1_PREFIX}/openai`;
-    static OPENAI_MODELS_PREFIX = `${this.OPENAI_PREFIX}/models`;
+    static OpenAi = {
+        OrganizationId: 'org-tnbt9iefbpaAa7D9BqtayjZS',
+        Bearer: `Bearer ${process.env.OPENAI_API_KEY}`,
+    };
+
+    static ApiPrefix = '/api';
+    static V1Prefix = `${this.ApiPrefix}/v1`;
+    static OpenAiPrefix = `${this.V1Prefix}/openai`;
+    static OpenAiModelsPrefix = `${this.OpenAiPrefix}/models`;
 }

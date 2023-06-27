@@ -1,16 +1,19 @@
 import { Express } from "express";
 import Constants from "../../../../constants";
 
-const URL_PREFIX = Constants.OPENAI_MODELS_PREFIX;
+const URL_PREFIX = Constants.OpenAiModelsPrefix;
 
+// TODO: Replace with openai module way
 export function registerOrganization(app: Express): void {
-    app.get(`${URL_PREFIX}`, (req, res) => {
-        res.send(URL_PREFIX);
+    app.get(`${URL_PREFIX}`, async (req, res, next) => {
+        const response = await fetch('https://api.openai.com/v1/models', {
+            headers: {
+                Authorization: Constants.OpenAi.Bearer,
+                'OpenAI-Organization': Constants.OpenAi.OrganizationId,
+            }
+        });
+        const json = await response.json();
+        console.log(json);
+        res.send(json);
     });
 }
-
-// TODO: Implement as a test and nothing more
-// Example:
-//     curl https://api.openai.com/v1/models \
-//       -H "Authorization: Bearer $OPENAI_API_KEY" \
-//       -H "OpenAI-Organization: <org-id>"

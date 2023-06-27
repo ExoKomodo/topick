@@ -3,10 +3,10 @@ import { registerOpenAi } from "./openai";
 
 import Constants from "../../constants";
 
-const URL_PREFIX = Constants.V1_PREFIX;
+const URL_PREFIX = Constants.V1Prefix;
 
 export function registerV1(app: Express): void {
-    app.get(`${URL_PREFIX}`, (req, res) => {
+    app.get(`${URL_PREFIX}`, (req, res, _) => {
         res.send(URL_PREFIX);
     });
 

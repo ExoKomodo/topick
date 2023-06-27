@@ -9,7 +9,7 @@ const API_PREFIX = '/api';
 const port = process.env.SERVER_PORT;
 const app = express();
 
-app.get("/", (req, res) => {
+app.get("/", (req, res, _) => {
     res.send("Hello world!");
 });
 
