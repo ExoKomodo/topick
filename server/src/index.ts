@@ -2,12 +2,25 @@ import dotenv from "dotenv";
 // IMPORTANT: This must be called before importing any other modules
 dotenv.config();
 
+import cors from "cors";
 import express from "express";
 import Constants from './constants';
 import { registerApi } from "./api";
 
 const port = Constants.Port;
 const app = express();
+
+app.use(cors({
+    origin: [
+        // NOTE: Local development client
+        'http://localhost:5173',
+        // NOTE: Production client
+        'https://topick.fyi',
+    ],
+    methods: [
+        'GET',
+    ],
+}));
 
 app.get("/", (req, res, _) => {
     res.send(`${Constants.BaseUrl}${Constants.Api.V1.Prefix}/topic`);
