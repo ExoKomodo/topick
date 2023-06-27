@@ -1,5 +1,5 @@
 import { Express } from "express";
-import { registerOrganization } from "./organization";
+import { registerOrganization } from "./models";
 import Constants from "../../../constants";
 
 const URL_PREFIX = Constants.OPENAI_PREFIX;
@@ -11,3 +11,9 @@ export function registerOpenAi(app: Express): void {
 
     registerOrganization(app);
 }
+
+/*
+    TODO: Proxy certain import openAI commands and work on helper library:
+    - https://platform.openai.com/docs/api-reference/requesting-organization
+    - Determine what methods we actually need access to
+*/
