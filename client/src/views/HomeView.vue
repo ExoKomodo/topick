@@ -3,13 +3,9 @@ import { reactive } from 'vue';
 
 import _ from "lodash";
 import Lib from '@/lib';
+import Constants from '@/constants';
 
 let query = "";
-
-// NOTE: Production
-// const baseUrl = "https://services.topick.fyi";
-// NOTE: Local dev
-const baseUrl = "http://localhost:8080";
 
 type SearchState = {
   query: string,
@@ -28,7 +24,7 @@ const submitSearch = Lib.buildDebounceAsync(async () => {
   }
   state.isLoading = true;
   try {
-    const data = await fetch(`${baseUrl}/api/v1/topic?search=${state.query}`);
+    const data = await fetch(`${Constants.BaseUrl}/api/v1/topic?search=${state.query}`);
     const json = await data.json();
     state.results = json.items;
   }
