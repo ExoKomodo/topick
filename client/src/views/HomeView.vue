@@ -2,6 +2,7 @@
 import { reactive } from 'vue';
 
 import _ from "lodash";
+import Lib from '@/lib';
 
 let query = "";
 
@@ -21,16 +22,25 @@ const state = reactive<SearchState>({
   results: [],
 });
 
-const submitSearch = _.debounce(async () => {
-    if (state.query === "") {
-      return;
-    }
-    state.isLoading = true;
+const submitSearch = Lib.buildDebounceAsync(async () => {
+  if (state.query === "") {
+    return;
+  }
+  state.isLoading = true;
+  try {
     const data = await fetch(`${baseUrl}/api/v1/topic?search=${state.query}`);
     const json = await data.json();
     state.results = json.items;
+  }
+  catch (err: any) {
+    state.results = [
+      `Failed to query API: ${err}`,
+    ];
+  }
+  finally {
     state.isLoading = false;
-  }, 250);
+  }
+})
 </script>
 
 <template>
