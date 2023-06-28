@@ -1,7 +1,7 @@
 const envs = {
-    Development: "dev",
-    Staging: "stg",
-    Production: "prd",
+    Development: "development",
+    Staging: "staging",
+    Production: "production",
 };
 
 const apiPrefix = '/api';
