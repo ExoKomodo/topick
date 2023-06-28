@@ -167,7 +167,7 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
                         'role': ChatCompletionRequestMessageRoleEnum.System,
                     },
                     {
-                        'content': 'The identifying field will be "pick"',
+                        'content': 'The identifying field will be "item"',
                         'name': 'setup-identifying-field',
                         'role': ChatCompletionRequestMessageRoleEnum.System,
                     },
@@ -177,7 +177,7 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
                         'role': ChatCompletionRequestMessageRoleEnum.User,
                     }
                 ],
-                temperature: 0.1,
+                temperature: 0.6,
             });
 
             let chatItems: string[] = [];

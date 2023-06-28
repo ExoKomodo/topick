@@ -34,11 +34,11 @@ const submitSearch = Lib.buildDebounceAsync(async () => {
   catch (err: any) {
     state.results = [
       {
-        'error': `Failed to query API: ${err}`,
+        'item': `Failed to query API: ${err}`,
       },
     ];
     state.resultObjectKeys = [
-      'error',
+      'item',
     ];
   }
   finally {
@@ -69,7 +69,7 @@ const submitSearch = Lib.buildDebounceAsync(async () => {
         <tbody>
           <tr v-for="result in state.results">
             <td v-for="key in state.resultObjectKeys">{{ result[key] }}</td>
-            <td><a :href="`https://duckduckgo.com/?q=${result.pick}`">DuckDuckGo</a></td>
+            <td><a :href="`https://duckduckgo.com/?q=${result.item}`">DuckDuckGo</a></td>
           </tr>
         </tbody>
       </table>
