@@ -171,7 +171,7 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
                         'role': ChatCompletionRequestMessageRoleEnum.User,
                     }
                 ],
-                temperature: 0.6,
+                temperature: 0.1,
             });
 
             let chatItems: string[] = [];
@@ -205,18 +205,17 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
     }
 }
 
-export function registerTopic(app: Express): void {
-    app.get(endpointPrefix, async (req, res, next) => {
+export function registerTopic(app: Express) {
+    app.get(endpointPrefix, (req, res, next) => {
         // TODO: Do type checking on this
         const params = (req.query as unknown) as TopicQueryParams;
-        try {
-            const data = await searchTopickAsync(params);
+        searchTopickAsync(params).then(data => {
             res.send(data);
-        } catch (err: any) {
+        }).catch(err => {
             if (err instanceof TopickError) {
                 res.status(err.getStatusCode());
             }
             next(err);
-        }
+        });
     });
 }
