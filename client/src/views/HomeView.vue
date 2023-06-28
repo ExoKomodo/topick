@@ -33,10 +33,12 @@ const submitSearch = Lib.buildDebounceAsync<boolean>(async () => {
   }
   catch (err: any) {
     state.results = [
-      `Failed to query API: ${err}`,
+      {
+        'error': `Failed to query API: ${err}`,
+      },
     ];
     state.resultObjectKeys = [
-      'Error'
+      'error',
     ];
   }
   finally {
@@ -84,5 +86,9 @@ const submitSearch = Lib.buildDebounceAsync<boolean>(async () => {
 .search-box {
   width: 16rem;
   margin-right: 1rem;
+}
+
+th, td {
+  border-bottom: 1px solid white;
 }
 </style>
