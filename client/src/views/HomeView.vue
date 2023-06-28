@@ -20,9 +20,9 @@ const state = reactive<SearchState>({
   resultObjectKeys: [],
 });
 
-const submitSearch = Lib.buildDebounceAsync<boolean>(async () => {
+const submitSearch = Lib.buildDebounceAsync(async () => {
   if (state.query === "") {
-    return false;
+    return;
   }
   state.isLoading = true;
   try {
@@ -44,8 +44,6 @@ const submitSearch = Lib.buildDebounceAsync<boolean>(async () => {
   finally {
     state.isLoading = false;
   }
-
-  return false;
 });
 </script>
 
