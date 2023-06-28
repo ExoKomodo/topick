@@ -161,8 +161,14 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
                 model: model,
                 messages: [
                     {
+                        
                         'content': 'You will respond to me exclusively with valid JSON arrays of objects',
-                        'name': 'setup',
+                        'name': 'setup-json',
+                        'role': ChatCompletionRequestMessageRoleEnum.System,
+                    },
+                    {
+                        'content': 'The identifying field will be "item"',
+                        'name': 'setup-identifying-field',
                         'role': ChatCompletionRequestMessageRoleEnum.System,
                     },
                     {
@@ -171,7 +177,7 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
                         'role': ChatCompletionRequestMessageRoleEnum.User,
                     }
                 ],
-                temperature: 0.1,
+                temperature: 0.6,
             });
 
             let chatItems: string[] = [];
