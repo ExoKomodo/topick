@@ -161,7 +161,7 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
                 model: model,
                 messages: [
                     {
-                        'content': 'You will respond to me exclusively with valid JSON arrays',
+                        'content': 'You will respond to me exclusively with valid JSON arrays of objects',
                         'name': 'setup',
                         'role': ChatCompletionRequestMessageRoleEnum.System,
                     },
