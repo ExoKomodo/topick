@@ -31,3 +31,11 @@ envs:
   scope: RUN_TIME
   type: SECRET
   value: EV[1:NOlYceXjt1I5sCldllQd3uDEH4cQDN8K:uILvXuYjf6VwQM3xBuNTRUNrAQ+jbhHQGATcj0h0zYMn5u0rU/C7Gc3+G28+Cg0waatY2+E5BkilD0mdBWm7Ell1fg==]
+- key: NODE_ENV
+  scope: RUN_AND_BUILD_TIME
+  type: GENERAL
+  value: production
+- key: SERVER_PORT
+  scope: RUN_AND_BUILD_TIME
+  type: GENERAL
+  value: "8080"
