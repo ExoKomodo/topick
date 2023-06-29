@@ -2,11 +2,14 @@
 
 ## Important Links
 
-- [Production UI](https://topick.fyi)
-- [Staging UI](https://stg.topick.fyi)
-- [Development UI](https://dev.topick.fyi)
-- [Production API](https://services.topick.fyi)
-- [Repository](https://github.com/ExoKomodo/topick)
+- [UI - production](https://topick.fyi)
+- [UI - staging](https://stg.topick.fyi)
+- [UI - development](https://dev.topick.fyi)
+- [API - production](https://services.topick.fyi)
+- [This Repository](https://github.com/ExoKomodo/topick)
+- [CD Repository - production](https://github.com/ExoKomodo/topick-prd)
+- [CD Repository - staging](https://github.com/ExoKomodo/topick-stg)
+- [CD Repository - development](https://github.com/ExoKomodo/topick-dev)
 - [OpenAI API Reference](https://platform.openai.com/docs/api-reference)
 
 ## Client
