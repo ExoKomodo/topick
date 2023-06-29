@@ -16,6 +16,10 @@ app.use(cors({
         'http://localhost:5173',
         // NOTE: Production client
         'https://topick.fyi',
+        // NOTE: Staging client
+        'https://stg.topick.fyi',
+        // NOTE: Development client
+        'https://dev.topick.fyi',
     ],
     methods: [
         'GET',
