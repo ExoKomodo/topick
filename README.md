@@ -16,6 +16,10 @@
 
 ### Client - Setup
 
+Install nodejs v18+. Using [`nvm`](https://github.com/nvm-sh/nvm) is the best option.
+
+Then run the `setup.sh`
+
 ```shell
 ./client/scripts/setup.sh
 ```
@@ -47,6 +51,10 @@
 ## Server
 
 ### Server - Setup
+
+Install nodejs v18+. Using [`nvm`](https://github.com/nvm-sh/nvm) is the best option.
+
+Then run the `setup.sh`
 
 ```shell
 ./server/scripts/setup.sh
