@@ -70,7 +70,7 @@
 ./server/scripts/unit-test.sh
 ```
 
-### Server - Integratiin Testing
+### Server - Integration Testing
 
 ```shell
 ./server/scripts/integration-test.sh
