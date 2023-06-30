@@ -12,6 +12,36 @@
 - [CD Repository - development](https://github.com/ExoKomodo/topick-dev)
 - [OpenAI API Reference](https://platform.openai.com/docs/api-reference)
 
+## CI/CD Statuses
+
+### Core
+
+[![CI](https://github.com/ExoKomodo/topick/actions/workflows/ci.yaml/badge.svg)](https://github.com/ExoKomodo/topick/actions/workflows/ci.yaml)
+
+### Production
+
+[![CI](https://github.com/ExoKomodo/topick-prd/actions/workflows/ci.yaml/badge.svg)](https://github.com/ExoKomodo/topick-prd/actions/workflows/ci.yaml)
+
+[![Frontend Deployment](https://github.com/ExoKomodo/topick-prd/actions/workflows/cd-client.yaml/badge.svg)](https://github.com/ExoKomodo/topick-prd/actions/workflows/cd-client.yaml)
+
+[![pages-build-deployment](https://github.com/ExoKomodo/topick-prd/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ExoKomodo/topick-prd/actions/workflows/pages/pages-build-deployment)
+
+### Staging
+
+[![CI](https://github.com/ExoKomodo/topick-stg/actions/workflows/ci.yaml/badge.svg)](https://github.com/ExoKomodo/topick-stg/actions/workflows/ci.yaml)
+
+[![Frontend Deployment](https://github.com/ExoKomodo/topick-stg/actions/workflows/cd-client.yaml/badge.svg)](https://github.com/ExoKomodo/topick-stg/actions/workflows/cd-client.yaml)
+
+[![pages-build-deployment](https://github.com/ExoKomodo/topick-stg/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ExoKomodo/topick-stg/actions/workflows/pages/pages-build-deployment)
+
+### Development
+
+[![CI](https://github.com/ExoKomodo/topick-dev/actions/workflows/ci.yaml/badge.svg)](https://github.com/ExoKomodo/topick-dev/actions/workflows/ci.yaml)
+
+[![Frontend Deployment](https://github.com/ExoKomodo/topick-dev/actions/workflows/cd-client.yaml/badge.svg)](https://github.com/ExoKomodo/topick-dev/actions/workflows/cd-client.yaml)
+
+[![pages-build-deployment](https://github.com/ExoKomodo/topick-dev/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ExoKomodo/topick-dev/actions/workflows/pages/pages-build-deployment)
+
 ## Client
 
 ### Client - Setup
