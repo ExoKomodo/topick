@@ -172,11 +172,6 @@ export async function searchTopickAsync({ search, count, model }: TopicQueryPara
                         'role': ChatCompletionRequestMessageRoleEnum.System,
                     },
                     {
-                        'content': 'You will include a url field',
-                        'name': 'setup-url-field',
-                        'role': ChatCompletionRequestMessageRoleEnum.System,
-                    },
-                    {
                         'content': prompt,
                         'name': 'query',
                         'role': ChatCompletionRequestMessageRoleEnum.User,

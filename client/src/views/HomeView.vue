@@ -26,51 +26,9 @@ const submitSearch = Lib.buildDebounceAsync(async () => {
   }
   state.isLoading = true;
   try {
-    // const data = await fetch(`${Constants.BaseUrl}/api/v1/topic?search=${state.query}`);
-    // const json = await data.json();
-    //state.results = json.items;
-    state.results = [
-      {
-        "item": "Prego Traditional Pasta Sauce",
-        "url": "https://www.prego.com/our-sauces/traditional/"
-      },
-      {
-        "item": "Rao's Homemade Marinara Sauce",
-        "url": "https://www.raos.com/products/marinara-sauce/"
-      },
-      {
-        "item": "Barilla Traditional Pasta Sauce",
-        "url": "https://www.barilla.com/en-us/products/sauces/traditional-pasta-sauce"
-      },
-      {
-        "item": "Classico Tomato and Basil Pasta Sauce",
-        "url": "https://www.classico.com/product/00041129077607/tomato-basil"
-      },
-      {
-        "item": "Hunt's Tomato Sauce",
-        "url": "https://www.hunts.com/products/tomato-sauce"
-      },
-      {
-        "item": "Bertolli Organic Traditional Tomato & Basil Sauce",
-        "url": "https://www.bertolli.com/sauces/organic-traditional-tomato-basil-sauce/"
-      },
-      {
-        "item": "Newman's Own Marinara Sauce",
-        "url": "https://www.newmansown.com/foods/marinara-sauce/"
-      },
-      {
-        "item": "Ragu Old World Style Traditional Sauce",
-        "url": "https://www.ragu.com/our-sauces/old-world-style/ragu-old-world-style-traditional-sauce/"
-      },
-      {
-        "item": "Mezzetta Napa Valley Homemade Tomato & Sweet Basil Sauce",
-        "url": "https://www.mezzetta.com/our-products/detail/napa-valley-homemade/tomato-sweet-basil"
-      },
-      {
-        "item": "DeLallo Pomodoro Fresco Tomato Sauce",
-        "url": "https://www.delallo.com/shop/sauces/pomodoro-fresco-tomato-sauce/"
-      }
-    ];
+    const data = await fetch(`${Constants.BaseUrl}/api/v1/topic?search=${state.query}`);
+    const json = await data.json();
+    state.results = json.items;
     state.resultObjectKeys = state.results.length > 0 ? Object.keys(state.results[0]) : [];
   }
   catch (err: any) {
