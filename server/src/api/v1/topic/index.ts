@@ -9,9 +9,9 @@ const client = openai.getClient();
 const endpointPrefix = Constants.Api.V1.Topic.Prefix;
 
 export type Model =
-| 'gpt-3.5-turbo'
-| 'gpt-4'
-| 'text-davinci-003'
+    | 'gpt-3.5-turbo'
+    | 'gpt-4'
+    | 'text-davinci-003'
 
 export type TopicQueryParams = {
     search: string,
@@ -20,10 +20,10 @@ export type TopicQueryParams = {
 };
 
 export type TopickErrorKind =
-| 'model-invalid-json'
-| 'model-unsupported'
-| 'model-unknown'
-| 'unknown'
+    | 'model-invalid-json'
+    | 'model-unsupported'
+    | 'model-unknown'
+    | 'unknown'
 
 type TopickErrorRecord = {
     name: TopickErrorKind
@@ -55,7 +55,7 @@ export type TopickResults<T> = {
     items: T[]
     count: number
 }
-export async function searchTopickAsync({ search, count, model } : TopicQueryParams): Promise<TopickResults<string>> {
+export async function searchTopickAsync({ search, count, model }: TopicQueryParams): Promise<TopickResults<string>> {
     /*
         Examples:
         curl  -X GET \
@@ -161,7 +161,7 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
                 model: model,
                 messages: [
                     {
-                        
+
                         'content': 'You will respond to me exclusively with valid JSON arrays of objects',
                         'name': 'setup-json',
                         'role': ChatCompletionRequestMessageRoleEnum.System,
@@ -169,6 +169,11 @@ export async function searchTopickAsync({ search, count, model } : TopicQueryPar
                     {
                         'content': 'The identifying field will be "item"',
                         'name': 'setup-identifying-field',
+                        'role': ChatCompletionRequestMessageRoleEnum.System,
+                    },
+                    {
+                        'content': 'You will include a url field',
+                        'name': 'setup-url-field',
                         'role': ChatCompletionRequestMessageRoleEnum.System,
                     },
                     {
