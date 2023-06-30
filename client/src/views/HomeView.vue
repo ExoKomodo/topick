@@ -112,7 +112,7 @@ const submitSearch = Lib.buildDebounceAsync(async () => {
         <tbody>
           <tr v-for="result in state.results">
             <td v-for="key in state.resultObjectKeys">
-              <a v-if="key === 'url'" :href="result[key]" target="_blank">{{ result[key] }}</a>
+              <a v-if="key === 'url'" :href="result[key]">{{ result[key] }}</a>
               <span v-else>{{ result[key] }}</span>
             </td>
             <td><a :href="`https://duckduckgo.com/?q=${result.item}`">DuckDuckGo</a></td>
