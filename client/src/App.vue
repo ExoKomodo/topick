@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img alt="Topick mascot" class="mascot" src="src/assets/output.png" width="110" height="150" />
+    <img alt="Topick mascot" class="mascot" src="../src/assets/output.png" width="110" height="150" />
 
     <div class="wrapper">
     </div>
