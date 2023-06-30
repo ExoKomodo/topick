@@ -52,7 +52,8 @@ const submitSearch = Lib.buildDebounceAsync(async () => {
     <h1>Topick</h1>
     <div>
       <form onsubmit="return false">
-        <input id="search" v-model="state.query" placeholder="What kind of thing are you looking for?" class="search-box" />
+        <input id="search" v-model="state.query" placeholder="What kind of thing are you looking for?"
+          class="search-box" />
         <button id="submit-search" @click="submitSearch">Search</button>
       </form>
     </div>
@@ -68,7 +69,10 @@ const submitSearch = Lib.buildDebounceAsync(async () => {
         </thead>
         <tbody>
           <tr v-for="result in state.results">
-            <td v-for="key in state.resultObjectKeys">{{ result[key] }}</td>
+            <td v-for="key in state.resultObjectKeys">
+              <a v-if="key === 'url'" :href="result[key]">{{ result[key] }}</a>
+              <span v-else>{{ result[key] }}</span>
+            </td>
             <td><a :href="`https://duckduckgo.com/?q=${result.item}`">DuckDuckGo</a></td>
           </tr>
         </tbody>
@@ -88,7 +92,8 @@ const submitSearch = Lib.buildDebounceAsync(async () => {
   margin-right: 1rem;
 }
 
-th, td {
+th,
+td {
   border-bottom: 1px solid white;
 }
 </style>
