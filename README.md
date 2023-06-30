@@ -52,6 +52,14 @@ Then run the `setup.sh`
 
 ### Server - Setup
 
+Create a .env file in the server root directory with the following contents:
+
+```
+SERVER_PORT=8080
+OPENAI_API_KEY=<set this with the key you got>
+
+```
+
 Install nodejs v18+. Using [`nvm`](https://github.com/nvm-sh/nvm) is the best option.
 
 Then run the `setup.sh`
@@ -83,4 +91,3 @@ Then run the `setup.sh`
 ```shell
 ./server/scripts/integration-test.sh
 ```
-
